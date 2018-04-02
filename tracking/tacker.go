@@ -4,8 +4,10 @@ import (
 	"net/http"
 )
 
-func NewTrackingHandler() http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte(r.RemoteAddr))
-	}
+func echoHandler(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte(r.RemoteAddr))
+}
+
+func NewIPEchoHandler() http.HandlerFunc {
+	return echoHandler
 }
